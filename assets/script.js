@@ -1,86 +1,58 @@
-// Initialize AOS (scroll animations)
-AOS.init({
-  duration: 800,
-  once: true
-});
+document.addEventListener("DOMContentLoaded", () => {
+  // AOS for smooth scroll fades
+  AOS.init({ duration: 700, easing: "ease-out", once: true, offset: 20 });
 
-// Navigation handling
-document.querySelectorAll('.nav-menu a').forEach(link => {
-    link.addEventListener('click', e => {
-        e.preventDefault();
-        
-        // Update active state
-        document.querySelectorAll('.nav-menu a').forEach(l => l.classList.remove('active'));
-        link.classList.add('active');
-        
-        // Smooth scroll to section
-        const target = document.querySelector(link.getAttribute('href'));
-        target.scrollIntoView({ behavior: 'smooth' });
-    });
-});
+  // Tabs (single active section at a time)
+  const tabs = document.querySelectorAll(".tab-btn");
+  const sections = document.querySelectorAll(".tab-content");
 
-// Typing effect in hero section
-var typed = new Typed(".typing", {
-  strings: ["Web Developer", "Designer", "Programmer"],
-  typeSpeed: 100,
-  backSpeed: 50,
-  loop: true
-});
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      if (tab.classList.contains("active")) return;
 
-// Smooth scrolling for navigation
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-    document.querySelector(this.getAttribute("href")).scrollIntoView({
-      behavior: "smooth"
+      tabs.forEach(t => t.classList.remove("active"));
+      sections.forEach(s => s.classList.remove("active"));
+
+      tab.classList.add("active");
+      const target = document.getElementById(tab.dataset.tab);
+      target.classList.add("active");
+
+      // re-trigger AOS in the newly displayed section
+      setTimeout(() => AOS.refresh(), 50);
     });
   });
-});
-// Swiper for Tools Section
-var swiper = new Swiper(".toolsSwiper", {
-  slidesPerView: 4,
-  spaceBetween: 30,
-  loop: true,
-  autoplay: {
-    delay: 2000,
-    disableOnInteraction: false,
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  breakpoints: {
-    0: {
-      slidesPerView: 2,
-    },
-    768: {
-      slidesPerView: 3,
-    },
-    1024: {
-      slidesPerView: 5,
-    }
+
+  // Contact form via EmailJS
+  const form = document.getElementById("contactForm");
+  const status = document.getElementById("formStatus");
+
+  if (form) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      status.textContent = "Sending...";
+      const formData = new FormData(form);
+
+      // Prepare EmailJS params
+      const params = {
+        from_name: formData.get("name"),
+        reply_to: formData.get("email"),
+        message: formData.get("message"),
+      };
+
+      try {
+        // Replace with your EmailJS IDs
+        const SERVICE_ID = "YOUR_SERVICE_ID";
+        const TEMPLATE_ID = "YOUR_TEMPLATE_ID";
+
+        await emailjs.send(SERVICE_ID, TEMPLATE_ID, params);
+        status.textContent = "Thanks! Your message has been sent.";
+        status.style.color = "#8be28b";
+        form.reset();
+      } catch (err) {
+        status.textContent = "Could not send. Please try again later.";
+        status.style.color = "#ff8484";
+        // console.error(err);
+      }
+    });
   }
-});
-// Dark mode toggle 
-document.querySelector(".dark-mode-toggle")?.addEventListener("click", function () {
-  document.body.classList.toggle("dark-mode");
-  this.classList.toggle("active");
-  localStorage.setItem("darkMode", document.body.classList.contains("dark-mode"));
-});
-// Button ripple effect
-document.querySelectorAll(".btn").forEach(button => {
-  button.addEventListener("click", function (e) {
-    let circle = document.createElement("span");
-    circle.classList.add("ripple");
-    circle.style.left = e.clientX - this.offsetLeft + "px";
-    circle.style.top = e.clientY - this.offsetTop + "px";
-    this.appendChild(circle);
-    setTimeout(() => circle.remove(), 600);
-  });
-});
-
-// Contact form (static demo)
-document.querySelector(".contact-form")?.addEventListener("submit", function (e) {
-  e.preventDefault();
-  alert("Thank you! Your message has been recorded (demo only).");
 });

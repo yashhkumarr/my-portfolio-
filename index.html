@@ -2,203 +2,128 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Yash Kumar — Portfolio</title>
-  <meta name="description" content="Portfolio of Yash Kumar — Web Developer, Designer, Programmer." />
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <!-- AOS Animation -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-  <!-- Swiper CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <!-- AOS (scroll animations) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
-    <div class="container">
-        <!-- Left Sidebar -->
-        <aside class="profile-card">
-            <img src="assets/profile.png" alt="Profile Picture" class="profile-image">
-            <h1 class="profile-name">Yash Kumar</h1>
-            <span class="profile-title typing"></span>
-            
-            <div class="contact-info">
-                <div class="contact-item">
-                    <span class="icon">📧</span>
-                    <span>yashhkumarr@gmail.com</span>
-                </div>
-                <div class="contact-item">
-                    <span class="icon">📱</span>
-                    <span>+91 98765 43210</span>
-                </div>
-                <div class="contact-item">
-                    <span class="icon">📍</span>
-                    <span>Bengaluru, IND</span>
-                </div>
-            </div>
-            
-            <div class="social-links">
-                <a href="https://linkedin.com/in/yashhkumarr" target="_blank"><img src="assets/icons/linkedin.svg" alt="LinkedIn"></a>
-                <a href="https://github.com/yashhkumarr" target="_blank"><img src="assets/icons/github.svg" alt="GitHub"></a>
-                <a href="https://instagram.com/yashhkumarr" target="_blank"><img src="assets/icons/instagram.svg" alt="Instagram"></a>
-            </div>
-        </aside>
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar" data-aos="fade-right" data-aos-duration="700">
+      <div class="profile">
+        <img src="assets/images/profile.jpg" alt="Yash Kumar" class="profile-img" />
+        <h2 class="name">Yash Kumar</h2>
+        <p class="role">Web Developer</p>
+      </div>
 
-        <!-- Main Content Area -->
-        <main class="main-content">
-            <nav class="nav-menu">
-                <a href="#about" class="active">About</a>
-                <a href="#resume">Resume</a>
-                <a href="#projects">Projects</a>
-                <a href="#tools">Tools</a>
-                <a href="#contact">Contact</a>
-            </nav>
+      <div class="contact-info">
+        <div class="contact-row">
+          <img src="assets/icons/mail.png" alt="Email" />
+          <a href="mailto:contact.yash2022@gmail.com">contact.yash2022@gmail.com</a>
+        </div>
+        <div class="contact-row">
+          <img src="assets/icons/phone.png" alt="Phone" />
+          <a href="tel:+919811631775">+91 9811631775</a>
+        </div>
+        <div class="contact-row">
+          <img src="assets/icons/location.png" alt="Location" />
+          <span>New Delhi, India</span>
+        </div>
+      </div>
 
-            <!-- About Section -->
-            <section id="about">
-                <h2>About Me</h2>
-                <p>I'm a third-year Computer Science student with a strong passion for UI/UX design and web development. I specialize in crafting intuitive user experiences and building dynamic, responsive websites.</p>
-                
-                <div class="what-im-doing">
-                    <h3>What I'm Doing</h3>
-                    <div class="services-grid">
-                        <div class="service-card" data-aos="fade-up">
-                          <h4>Web Development</h4>
-                          <p>Building responsive and dynamic websites with modern tech.</p>
-                        </div>
-                        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                          <h4>UI/UX Design</h4>
-                          <p>Designing intuitive and user-friendly digital experiences.</p>
-                        </div>
-                        <div class="service-card" data-aos="fade-up" data-aos-delay="400">
-                          <h4>Programming</h4>
-                          <p>Developing efficient solutions using JavaScript, Python, and more.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+      <div class="socials">
+        <a href="https://github.com/yashhkumarr" target="_blank" rel="noopener">
+          <img src="assets/icons/github.png" alt="GitHub" />
+        </a>
+        <a href="https://x.com/YashKTwtts" target="_blank" rel="noopener">
+          <img src="assets/icons/twitter.png" alt="Twitter (X)" />
+        </a>
+        <a href="https://www.linkedin.com/in/yash-kumar-547545250" target="_blank" rel="noopener">
+          <img src="assets/icons/linkedin.png" alt="LinkedIn" />
+        </a>
+      </div>
+    </aside>
 
-            <!-- Projects Section -->
-            <section id="projects" data-aos="fade-left">
-                <div class="container">
-                  <h2>Projects</h2>
-                  <p>Here are some of my recent works:</p>
-                  <ul>
-                    <li>Portfolio Website</li>
-                    <li>E-commerce Store</li>
-                    <li>Blog Platform</li>
-                  </ul>
-                </div>
-              </section>
+    <!-- Main -->
+    <main class="content" data-aos="fade-up" data-aos-duration="700">
+      <!-- Tabs -->
+      <nav class="tabs">
+        <button class="tab-btn active" data-tab="about" aria-selected="true">About</button>
+        <button class="tab-btn" data-tab="resume">Resume</button>
+        <button class="tab-btn" data-tab="projects">Projects</button>
+        <button class="tab-btn" data-tab="contact">Contact</button>
+      </nav>
 
-            <!-- ===== Tools Section ===== -->
-            <section id="tools" class="section">
-              <div class="container">
-                <h2 data-aos="fade-up">Tools</h2>
-        
-                <!-- Swiper -->
-                <div class="swiper toolsSwiper" data-aos="fade-up">
-                  <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                      <img src="assets/icons/figma.png" alt="Figma">
-                      <div class="tool-name">Figma</div>
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="assets/icons/illustrator.png" alt="Illustrator">
-                      <div class="tool-name">Illustrator</div>
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="assets/icons/js.png" alt="JavaScript">
-                      <div class="tool-name">JavaScript</div>
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="assets/icons/react.png" alt="React">
-                      <div class="tool-name">React</div>
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="assets/icons/html.png" alt="HTML5">
-                      <div class="tool-name">HTML5</div>
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="assets/icons/css.png" alt="CSS3">
-                      <div class="tool-name">CSS3</div>
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="assets/icons/git.png" alt="Git">
-                      <div class="tool-name">Git</div>
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="assets/icons/github.png" alt="GitHub">
-                      <div class="tool-name">GitHub</div>
-                    </div>
-                  </div>
-                  <!-- Navigation -->
-                  <div class="swiper-pagination"></div>
-                </div>
-              </div>
-            </section>
+      <!-- About -->
+      <section id="about" class="tab-content active fade">
+        <h2 data-aos="fade" data-aos-duration="600">About Me</h2>
+        <p data-aos="fade" data-aos-delay="80" data-aos-duration="600">
+          I'm a Computer Science enthusiast focused on building fast, responsive,
+          and accessible web experiences. I enjoy shipping clean UI and learning new tools 🚀
+        </p>
 
-            <!-- Contact Section -->
-            <section id="contact" data-aos="zoom-in">
-                <div class="container">
-                  <h2>Contact Me</h2>
-                  <p>Have a project or just want to say hi? Drop a message!</p>
-                  
-                  <form class="contact-form">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <textarea placeholder="Your Message" rows="5" required></textarea>
-                    <button type="submit" class="btn">Send Message</button>
-                  </form>
-    
-                  <div class="socials">
-                    <a href="https://github.com/yashhkumarr" target="_blank">🐙 GitHub</a>
-                    <a href="https://linkedin.com/in/yashhkumarr" target="_blank">💼 LinkedIn</a>
-                    <a href="https://twitter.com/yashhkumarr" target="_blank">🐦 Twitter</a>
-                  </div>
-                </div>
-              </section>
-        </main>
-    </div>
+        <h3 data-aos="fade" data-aos-delay="120" data-aos-duration="600">Tools & Technologies</h3>
+        <div class="tools-grid">
+          <div class="tool" data-aos="zoom-in"><img src="assets/tools/html.png" alt="HTML5" /><p>HTML5</p></div>
+          <div class="tool" data-aos="zoom-in" data-aos-delay="60"><img src="assets/tools/css.png" alt="CSS3" /><p>CSS3</p></div>
+          <div class="tool" data-aos="zoom-in" data-aos-delay="120"><img src="assets/tools/js.png" alt="JavaScript" /><p>JavaScript</p></div>
+          <div class="tool" data-aos="zoom-in" data-aos-delay="180"><img src="assets/tools/react.png" alt="React" /><p>React</p></div>
+          <div class="tool" data-aos="zoom-in" data-aos-delay="240"><img src="assets/tools/nodejs.png" alt="Node.js" /><p>Node.js</p></div>
+          <div class="tool" data-aos="zoom-in" data-aos-delay="300"><img src="assets/tools/python.png" alt="Python" /><p>Python</p></div>
+          <div class="tool" data-aos="zoom-in" data-aos-delay="360"><img src="assets/tools/git.png" alt="Git" /><p>Git</p></div>
+          <div class="tool" data-aos="zoom-in" data-aos-delay="420"><img src="assets/tools/vscode.png" alt="VS Code" /><p>VS Code</p></div>
+          <div class="tool" data-aos="zoom-in" data-aos-delay="480"><img src="assets/tools/mongodb.png" alt="MongoDB" /><p>MongoDB</p></div>
+        </div>
+      </section>
 
-  <!-- AOS -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+      <!-- Resume -->
+      <section id="resume" class="tab-content fade center-content" aria-label="Resume">
+        <h1 class="coming-soon" data-aos="zoom-in">COMING SOON</h1>
+        <p class="muted" data-aos="fade" data-aos-delay="120">I’m formatting my latest resume. Check back shortly.</p>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="tab-content fade center-content" aria-label="Projects">
+        <h1 class="coming-soon" data-aos="zoom-in">COMING SOON</h1>
+        <p class="muted" data-aos="fade" data-aos-delay="120">Showcase in progress — adding my favorite builds.</p>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="tab-content fade" aria-label="Contact">
+        <div class="contact-banner" data-aos="fade-down">
+          <h2>📩 Let’s Work Together</h2>
+          <p>For collaborations, projects, or a friendly hello — I’d love to hear from you.</p>
+        </div>
+
+        <form id="contactForm" class="contact-form" data-aos="fade-up">
+          <div class="grid-2">
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input type="email" name="email" placeholder="Your Email" required />
+          </div>
+          <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+          <button type="submit" class="btn">Send Message</button>
+          <p id="formStatus" class="form-status" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <!-- EmailJS SDK (client-side email) -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script>
-    AOS.init({
-      duration: 1200,
-      once: true
-    });
+    (function(){ emailjs.init("YOUR_PUBLIC_KEY"); })(); /* replace with your EmailJS Public Key */
   </script>
 
-  <!-- Typed.js -->
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-  <script>
-    var typed = new Typed(".typing", {
-      strings: ["Web Developer", "Designer", "Programmer"],
-      typeSpeed: 100,
-      backSpeed: 50,
-      loop: true
-    });
-  </script>
-
-  <!-- Smooth Scroll -->
-  <script>
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener("click", function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute("href")).scrollIntoView({
-          behavior: "smooth"
-        });
-      });
-    });
-  </script>
-
-  <!-- Swiper -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <!-- AOS + App script -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script src="assets/script.js"></script>
 </body>
 </html>
